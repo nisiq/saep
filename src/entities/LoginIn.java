@@ -8,11 +8,11 @@ import java.sql.SQLException;
 
 public class LoginIn {
 
-    public static int validarLogin(String usuario, String senha) {
+    public static int validarLogin(String email, String senha) {
         try (Connection connection = database.conectar()) {
-            String queryClientes = "SELECT id FROM professores WHERE usuario = ? AND senha = ?";
+            String queryClientes = "SELECT id FROM professor WHERE email = ? AND senha = ?";
             try (PreparedStatement preparedStatementClientes = connection.prepareStatement(queryClientes)) {
-                preparedStatementClientes.setString(1, usuario);
+                preparedStatementClientes.setString(1, email);
                 preparedStatementClientes.setString(2, senha);
 
                 try (ResultSet resultSetClientes = preparedStatementClientes.executeQuery()) {

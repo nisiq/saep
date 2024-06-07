@@ -8,7 +8,7 @@ public class Botao extends JButton {
 
     public Botao(String text){
         super(text);
-        setBackground(Color.decode("#FF0000"));
+        setBackground(Color.decode("#ADD8E6"));
         setForeground(Color.WHITE);
     }
 

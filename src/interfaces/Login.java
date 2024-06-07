@@ -14,23 +14,31 @@ public class Login {
 
     public void mostrarJanela() {
         Janela janela = new Janela("Login");
-        janela.setSize(300, 400);
+        janela.setSize(600, 400);
+        janela.setLayout(null);
 
         JLabel labelUser = new JLabel("Email");
-        labelUser.setBounds(100, 70, 100, 30);
+        labelUser.setBounds(400, 70, 100, 30);
 
         CampoTexto user = new CampoTexto();
-        user.setBounds(100, 100, 100, 30);
+        user.setBounds(400, 100, 100, 30);
 
         JLabel labelSenha = new JLabel("Senha: ");
-        labelSenha.setBounds(100, 170, 100, 30);
+        labelSenha.setBounds(400, 170, 100, 30);
 
         CampoSenha senha = new CampoSenha();
-        senha.setBounds(100, 200, 100, 30);
+        senha.setBounds(400, 200, 100, 30);
 
         Botao btnLogin = new Botao("Login");
-        btnLogin.setBounds(100, 300, 100, 30);
+        btnLogin.setBounds(400, 300, 100, 30);
 
+        String imagePath = "src/Imagens/logogestao.png";
+        ImageIcon icon = new ImageIcon(imagePath);
+
+        JLabel label = new JLabel(icon);
+        label.setBounds(40, -10, icon.getIconWidth(), icon.getIconHeight());
+
+        janela.add(label);
         janela.add(labelUser);
         janela.add(user);
         janela.add(labelSenha);
@@ -58,5 +66,8 @@ public class Login {
                 }
             }
         });
+    }
+
+    public void setVisible(boolean b) {
     }
 }

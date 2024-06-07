@@ -25,7 +25,7 @@ public class database {
 
     public static Connection conectar() {
         try {
-            // carrega o driver do banco de dados
+            // driver do banco de dados
             Class.forName(CLASSE_DRIVE);
             return DriverManager.getConnection(URL_SERVIDOR, USUARIO, SENHA);
         } catch (ClassNotFoundException | SQLException e) {
