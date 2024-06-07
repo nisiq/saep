@@ -4,11 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 import static java.awt.Color.RED;
+import static java.awt.Color.WHITE;
 
 public class Rotulo extends JLabel {
     public Rotulo(){
         this.setBounds(100, 100, 300, 200);
-        this.setForeground(new Color(0xAD, 0xD8, 0xE6)); // Azul claro (#ADD8E6)
+        this.setForeground(WHITE);
     }
 
     public void getText(String testre) {

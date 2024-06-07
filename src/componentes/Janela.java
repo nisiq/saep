@@ -12,6 +12,7 @@ public class Janela extends JFrame {
             getContentPane().setBackground(Color.WHITE);
             setLocationRelativeTo(null);
             setResizable(false);
+            setBackground(Color.WHITE);
     }
 
     public void add(ImageIcon iconeAmpliado) {

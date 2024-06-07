@@ -58,7 +58,7 @@ public class Login {
                     JOptionPane.showMessageDialog(janela, "Login bem-sucedido!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                     int idProfessorLogado = idUsuario;
 
-                    Principal principal = new Principal(idProfessorLogado); // Passe o ID do usuário logado para o construtor de Principal
+                    Principal principal = new Principal(idProfessorLogado);
                     principal.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(janela, "Usuário ou senha incorretos", "Erro", JOptionPane.ERROR_MESSAGE);

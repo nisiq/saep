@@ -27,4 +27,23 @@ public class LoginIn {
             return -1;
         }
     }
+
+    public static String obterNomeProfessor(int idProfessor) {
+        String nomeProfessor = null;
+        try (Connection connection = database.conectar()) {
+            String query = "SELECT nome FROM professor WHERE id = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setInt(1, idProfessor);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        nomeProfessor = resultSet.getString("nome");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nomeProfessor;
+    }
 }
+

@@ -14,7 +14,7 @@ public class Table extends JPanel {
         model = new DefaultTableModel(columns, 0);
         table = new JTable(model);
         setBackground(Color.decode("#FF0000"));
-        table.setForeground(Color.BLACK);
+        setForeground(Color.WHITE);
 
         // trava a tabela
         table.setDefaultEditor(Object.class, null);

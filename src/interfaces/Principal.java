@@ -3,6 +3,7 @@ package interfaces;
 import componentes.Botao;
 import componentes.Janela;
 import componentes.Table;
+import entities.LoginIn;
 import entities.Turmasx;
 
 import javax.swing.*;
@@ -13,10 +14,12 @@ import java.util.List;
 
 public class Principal extends JFrame {
 
-    private final int idProfessorLogado;
+    private int idProfessorLogado;
 
-    public Principal(int idProfessor) {
-        this.idProfessorLogado = idProfessor;
+    public Principal(int idProfessorLogado) {
+        this.idProfessorLogado = idProfessorLogado;
+
+        String nomeProfessor = LoginIn.obterNomeProfessor(idProfessorLogado);
 
         Janela janela = new Janela("Minhas Turmas");
         janela.setLayout(new BorderLayout());
@@ -63,9 +66,11 @@ public class Principal extends JFrame {
                 Login login = new Login();
                 login.setVisible(true);
                 janela.dispose();
-
             }
         });
+
+        JLabel labelNomeProfessor = new JLabel("Professor: " + nomeProfessor);
+        janela.add(labelNomeProfessor, BorderLayout.NORTH);
 
         janela.add(table, BorderLayout.CENTER);
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -76,7 +81,7 @@ public class Principal extends JFrame {
 
         janela.add(buttonPanel, BorderLayout.SOUTH);
 
-        List<Object[]> turmaData = Turmasx.obterTurmas(idProfessor);
+        List<Object[]> turmaData = Turmasx.obterTurmas(idProfessorLogado);
         table.carregarDados(turmaData);
 
         janela.setPreferredSize(new Dimension(600, 400));

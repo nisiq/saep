@@ -16,14 +16,16 @@ public class TurmaCad {
 
     private int idProfessorLogado;
 
+
+
     public TurmaCad(int idProfessor) {
         this.idProfessorLogado = idProfessor;
 
         Janela janela = new Janela("Cadastro de Turma");
-        janela.setLayout(null); // Usando layout absoluto
+        janela.setLayout(null);
 
         Botao btnVoltar = new Botao("Voltar");
-        btnVoltar.setBounds(20, 20, 100, 30); // Posição e tamanho do botão Voltar
+        btnVoltar.setBounds(20, 20, 100, 30);
         btnVoltar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 janela.dispose();
@@ -33,21 +35,21 @@ public class TurmaCad {
         });
 
         CampoTexto nomeTurma = new CampoTexto();
-        nomeTurma.setBounds(150, 20, 200, 30); // Posição e tamanho do campo de texto
+        nomeTurma.setBounds(150, 20, 200, 30);
         Botao cadTurma = new Botao("Cadastrar");
-        cadTurma.setBounds(360, 20, 120, 30); // Posição e tamanho do botão Cadastrar
+        cadTurma.setBounds(360, 20, 120, 30);
         cadTurma.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String nome = nomeTurma.getText();
 
                 try {
                     if (Turmasx.cadastrarTurma(nome, idProfessor)) {
-                        JOptionPane.showMessageDialog(janela, "Produto cadastrado com sucesso!");
+                        JOptionPane.showMessageDialog(janela, "Turma cadastrada com sucesso!");
                         janela.dispose();
                         Principal principal = new Principal(idProfessorLogado);
                         principal.setVisible(true);
                     } else {
-                        JOptionPane.showMessageDialog(janela, "Erro ao cadastrar o produto.");
+                        JOptionPane.showMessageDialog(janela, "Erro ao cadastrar a turma.");
                     }
                 } catch (SQLException ex) {
                     throw new RuntimeException(ex);
